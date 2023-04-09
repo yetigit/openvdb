@@ -51,6 +51,22 @@ if(POLICY CMP0091)
 endif()
 
 ###### Version
+set(Boost_iostreams_ROOT c:/repos/vcpkg/packages/boost-iostreams_x64-windows-static)
+set(Boost_regex_ROOT c:/repos/vcpkg/packages/boost-regex_x64-windows-static)
+# set(Boost_iostreams_FOUND TRUE)
+# set(Boost_iostreams_LIBRARY "C:/repos/vcpkg/installed/x64-windows-static/lib/boost_iostreams-vc140-mt.lib")
+
+# set(Boost_regex_FOUND TRUE)
+# set(Boost_regex_LIBRARY "C:/repos/vcpkg/installed/x64-windows-static/lib/boost_regex-vc140-mt.lib")
+
+
+set(Boost_INCLUDE_DIR "c:/repos/vcpkg/installed/x64-windows-static/include")
+
+set(TBB_ROOT c:/repos/openvdb/local-3rd/tbb)
+set(Blosc_INC c:/repos/vcpkg/packages/blosc_x64-windows-static/include)
+set (Blosc_ROOT c:/repos/vcpkg/packages/blosc_x64-windows-static)
+set (ZLIB_LIBRARY "C:/repos/vcpkg/packages/zlib_x64-windows-static/lib/zlib.lib")
+set (ZLIB_INCLUDE_DIR c:/repos/vcpkg/packages/zlib_x64-windows-static/include)
 
 set(OpenVDB_MAJOR_VERSION 10)
 set(OpenVDB_MINOR_VERSION 0)

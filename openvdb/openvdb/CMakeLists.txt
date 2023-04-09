@@ -607,6 +607,7 @@ endif()
 
 if(OPENVDB_CORE_SHARED)
   add_library(openvdb_shared SHARED ${OPENVDB_LIBRARY_SOURCE_FILES})
+  set_target_properties(openvdb_shared PROPERTIES PREFIX "pf")
 endif()
 
 if(OPENVDB_CORE_STATIC)
@@ -689,9 +690,18 @@ endif()
 # Configure shared build
 
 if(OPENVDB_CORE_SHARED)
+
+set(Blosc_INC c:/repos/vcpkg/packages/blosc_x64-windows-static/include)
+set(ZLIB_INCLUDE_DIR c:/repos/vcpkg/packages/zlib_x64-windows-static/include)
+set(TBB_INC c:/repos/openvdb/local-3rd/tbb/include)
+
+
+file(GLOB OTHERLIB "c:/repos/openvdb/local-3rd/blosc-zlib-dep/lib/*.lib")
+
   target_include_directories(openvdb_shared
-    PUBLIC ../ ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR}/openvdb
-    PRIVATE .
+    PUBLIC .. ${TBB_INC} ${Blosc_INC} ${ZLIB_INCLUDE_DIR} ${Boost_INCLUDE_DIR}
+	${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_BINARY_DIR}/openvdb
+    "c:/repos/vcpkg/installed/x64-windows/include"
   )
 
   target_compile_definitions(openvdb_shared
@@ -701,6 +711,7 @@ if(OPENVDB_CORE_SHARED)
 
   target_link_libraries(openvdb_shared
     PUBLIC ${OPENVDB_CORE_DEPENDENT_LIBS}
+   ${OTHERLIB}
   )
 
   set_target_properties(openvdb_shared
